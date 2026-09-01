@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { ArrowRight, BookOpen, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SiteHeader } from '@/components/site-header';
@@ -15,7 +14,7 @@ export default function Home() {
           <p className="eyebrow">創刊號・2026 秋季號 · Volume 1, Issue 1</p>
           <h1>讓數位方法，<br /><em>打開客家研究的新視野。</em></h1>
           <p className="intro">一份連結客家研究、數位人文與人工智慧的開放取用學術期刊。從苗栗客庄出發，匯聚跨領域方法與在地知識。</p>
-          <div className="hero-actions"><Button nativeButton={false} render={<Link href="#current" />} size="lg"><BookOpen /> 閱讀創刊號</Button><Button nativeButton={false} render={<Link href="/submit" />} size="lg" variant="outline">投稿須知 <ArrowRight /></Button></div>
+          <div className="hero-actions"><Button nativeButton={false} render={<a href="#current" />} size="lg"><BookOpen /> 閱讀創刊號</Button><Button nativeButton={false} render={<a href="/submit" />} size="lg" variant="outline">投稿須知 <ArrowRight /></Button></div>
         </div>
         <aside className="issue-card" aria-label="創刊號封面">
           <span className="issue-no">創刊號<br /><i>VOL. 01</i></span>
@@ -30,11 +29,11 @@ export default function Home() {
       </section>
 
       <section className="current-issue" id="current">
-        <div className="section-heading"><div><p className="eyebrow">CURRENT ISSUE</p><h2>創刊號｜AI 時代的客家知識</h2></div><Link href="/articles">瀏覽全部文章 <ArrowRight /></Link></div>
+        <div className="section-heading"><div><p className="eyebrow">CURRENT ISSUE</p><h2>創刊號｜AI 時代的客家知識</h2></div><a href="/articles">瀏覽全部文章 <ArrowRight /></a></div>
         <div className="article-list">
           {articles.map((article, index) => (
             <article className="article-row" key={article.title}>
-              <span className="article-index">0{index + 1}</span><div><p className="article-type">{article.type}</p><h3>{article.title}</h3>{article.titleEn && <p className="article-en">{article.titleEn}</p>}<p className="authors">{article.authors}　{article.affiliation}</p></div><span className="pages">{article.pages}</span><Link aria-label={`閱讀文章：${article.title}`} href={`/articles/${article.id}`}><ArrowRight /></Link>
+              <span className="article-index">0{index + 1}</span><div><p className="article-type">{article.type}</p><h3><a href={`/articles/${article.id}`}>{article.title}</a></h3>{article.titleEn && <p className="article-en">{article.titleEn}</p>}<p className="authors">{article.authors}　{article.affiliation}</p></div><span className="pages">{article.pages}</span><a aria-label={`閱讀文章：${article.title}`} href={`/articles/${article.id}`}><ArrowRight /></a>
             </article>
           ))}
         </div>

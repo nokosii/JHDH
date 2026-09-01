@@ -1,7 +1,6 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import Link from 'next/link';
 import { ArrowRight, Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -31,13 +30,13 @@ export function ArticleBrowser() {
         {filtered.map((article) => (
           <article className="archive-item" key={article.id}>
             <p className="article-type">{article.type}</p>
-            <h2><Link href={`/articles/${article.id}`}>{article.title}</Link></h2>
+            <h2><a href={`/articles/${article.id}`}>{article.title}</a></h2>
             {article.titleEn && <p className="article-en">{article.titleEn}</p>}
             <p className="authors">{article.authors}{article.authorsEn && `　${article.authorsEn}`}</p>
             <p className="archive-affiliation">{article.affiliation}</p>
             <div className="keyword-row">{article.keywords.map((keyword) => <span key={keyword}>{keyword}</span>)}</div>
             <p className="archive-meta">{article.pages}{article.doi && `　・　DOI: ${article.doi}`}</p>
-            <Link className="read-link" href={`/articles/${article.id}`}>閱讀文章資訊 <ArrowRight /></Link>
+            <a className="read-link" href={`/articles/${article.id}`}>閱讀文章資訊 <ArrowRight /></a>
           </article>
         ))}
         {!filtered.length && <div className="empty-state"><Search /><h2>找不到相符文章</h2><p>請調整關鍵字或選擇其他文章類型。</p></div>}

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, Download, FileText, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -23,7 +22,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
   return (
     <main><SiteHeader />
       <article className="article-page">
-        <Link className="back-link" href="/articles"><ArrowLeft /> 返回文章典藏</Link>
+        <div className="article-nav-links"><a className="back-link" href="/"><ArrowLeft /> 返回期刊首頁</a><a className="back-link" href="/articles">文章典藏</a></div>
         <div className="article-title-block"><p className="article-type">{article.type}</p><h1>{article.title}</h1>{article.titleEn && <p className="article-title-en">{article.titleEn}</p>}<p className="article-byline">{article.authors}{article.authorsEn && <span>{article.authorsEn}</span>}</p><p className="article-affiliation">{article.affiliation}<br /><a href={`mailto:${article.email}`}>{article.email}</a></p></div>
         <div className="article-layout">
           <div className="article-content"><section><h2>摘要</h2><p>{article.abstract}</p></section>{article.abstractEn && <section><h2>Abstract</h2><p className="abstract-en">{article.abstractEn}</p></section>}<section><h2>關鍵字</h2><div className="keyword-row">{article.keywords.map((keyword) => <span key={keyword}>{keyword}</span>)}</div></section><div className="citation-box"><Quote /><div><b>引用格式</b><p>{article.authors}（2026）。〈{article.title}〉。《客家與數位人文期刊》，1(1)，{article.pages}。</p></div></div></div>
