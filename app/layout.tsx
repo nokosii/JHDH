@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
-const socialImage = new URL('/og.png', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000').toString();
+const socialImage = new URL('/og.png', 'https://hakka-digital-humanities-journal.changehakka.chatgpt.site').toString();
 
 export const metadata: Metadata = {
   title: '客家與數位人文期刊｜Journal of Hakka and Digital Humanities',
