@@ -26,7 +26,7 @@ export default function Home() {
 
       <section className="search-strip" aria-label="文章搜尋">
         <div><Search aria-hidden="true" /><span>搜尋文章題名、作者、關鍵字⋯</span></div><Button variant="secondary">搜尋期刊</Button>
-        <p><b>本期關鍵字</b>　人工智慧　台灣客家　語言復甦　客語</p>
+        <p><b>本期關鍵字</b>　客語復振　人工智慧　資料主權　CARE原則　家庭語言政策</p>
       </section>
 
       <section className="current-issue" id="current">
