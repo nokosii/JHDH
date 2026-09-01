@@ -26,7 +26,7 @@ export default function Home() {
 
       <section className="search-strip" aria-label="文章搜尋">
         <div><Search aria-hidden="true" /><span>搜尋文章題名、作者、關鍵字⋯</span></div><Button variant="secondary">搜尋期刊</Button>
-        <p><b>熱門關鍵字</b>　客語語料庫　文化記憶　生成式 AI　數位典藏</p>
+        <p><b>本期關鍵字</b>　人工智慧　台灣客家　語言復甦　客語</p>
       </section>
 
       <section className="current-issue" id="current">
@@ -34,7 +34,7 @@ export default function Home() {
         <div className="article-list">
           {articles.map((article, index) => (
             <article className="article-row" key={article.title}>
-              <span className="article-index">0{index + 1}</span><div><p className="article-type">{article.type}</p><h3>{article.title}</h3><p className="article-en">{article.titleEn}</p><p className="authors">{article.authors}　{article.authorsEn}</p></div><span className="pages">{article.pages}</span><Link aria-label={`閱讀文章：${article.title}`} href={`/articles/${article.id}`}><ArrowRight /></Link>
+              <span className="article-index">0{index + 1}</span><div><p className="article-type">{article.type}</p><h3>{article.title}</h3>{article.titleEn && <p className="article-en">{article.titleEn}</p>}<p className="authors">{article.authors}　{article.affiliation}</p></div><span className="pages">{article.pages}</span><Link aria-label={`閱讀文章：${article.title}`} href={`/articles/${article.id}`}><ArrowRight /></Link>
             </article>
           ))}
         </div>

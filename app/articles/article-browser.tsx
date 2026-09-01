@@ -32,11 +32,12 @@ export function ArticleBrowser() {
           <article className="archive-item" key={article.id}>
             <p className="article-type">{article.type}</p>
             <h2><Link href={`/articles/${article.id}`}>{article.title}</Link></h2>
-            <p className="article-en">{article.titleEn}</p>
-            <p className="authors">{article.authors}　{article.authorsEn}</p>
+            {article.titleEn && <p className="article-en">{article.titleEn}</p>}
+            <p className="authors">{article.authors}{article.authorsEn && `　${article.authorsEn}`}</p>
+            <p className="archive-affiliation">{article.affiliation}</p>
             <div className="keyword-row">{article.keywords.map((keyword) => <span key={keyword}>{keyword}</span>)}</div>
-            <p className="archive-meta">{article.pages}　・　DOI: {article.doi}</p>
-            <Link className="read-link" href={`/articles/${article.id}`}>閱讀摘要與全文 <ArrowRight /></Link>
+            <p className="archive-meta">{article.pages}{article.doi && `　・　DOI: ${article.doi}`}</p>
+            <Link className="read-link" href={`/articles/${article.id}`}>閱讀文章資訊 <ArrowRight /></Link>
           </article>
         ))}
         {!filtered.length && <div className="empty-state"><Search /><h2>找不到相符文章</h2><p>請調整關鍵字或選擇其他文章類型。</p></div>}
